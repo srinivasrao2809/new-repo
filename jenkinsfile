@@ -1,0 +1,32 @@
+pipeline{
+    agent any{
+
+        stages{
+            stage('hostname'){
+                steps{
+                    sh "hostname"
+                }
+            }
+            stage('server ip address'){
+                steps{
+                    sh "hostname -I"
+                }
+            }
+            stage('disk usage'){
+                steps{
+                    sh "df -h"
+                }
+            }
+            stage('server uptime'){
+                steps{
+                    sh "uptime"
+                }
+            }
+            stage('memory usage'){
+                steps{
+                    sh "free -h"
+                }
+            }
+        }
+    }
+}
